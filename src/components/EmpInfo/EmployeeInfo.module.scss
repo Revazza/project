@@ -1,0 +1,60 @@
+.wrapper {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.return {
+  cursor: pointer;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background: #d9d9d9;
+  position: absolute;
+  top: 53px;
+  left: 70px;
+  text-align: center;
+  line-height: 55px;
+  a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 100%;
+  }
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 16px;
+  }
+}
+
+.form_wrapper {
+  position: absolute;
+  height: 973px;
+  left: 347px;
+  right: 347px;
+  top: 157px;
+
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid black;
+}
+
+.input_field {
+  width: 30%;
+  height: 60px;
+  position: absolute;
+}
+#name {
+  left: 150px;
+  top: 88px;
+}
+#lastname {
+  left: 590px;
+  top: 88px;
+}
