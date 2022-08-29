@@ -1,0 +1,38 @@
+.wrapper {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+
+  .welcome_img,
+  .logo,
+  .btn_wrapper {
+    position: absolute;
+  }
+  .logo {
+    left: calc(50% - 112px/2);
+    top: 79px;
+    background-image: url("../../../public/assets/logo.png");
+    width: 120px;
+    height: 20px;
+    background-repeat: no-repeat;
+  }
+  .welcome_img {
+    left: 589px;
+    top: 182px;
+    background-image: url("../../../public/assets/welcome.png");
+    width: 781px;
+    height: 482px;
+    background-repeat: no-repeat;
+  }
+}
+
+.btn_wrapper {
+  left: calc(50% - 387px/2 - 0.5px);
+  top: 787px;
+  width: 340px;
+  height: 60px;
+  button {
+    font-size: 20px;
+    margin-top: 26px;
+  }
+}
