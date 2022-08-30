@@ -1,3 +1,5 @@
+@use '../../variables.scss' as s;
+
 .wrapper {
   width: 1920px;
   height: 1080px;
@@ -37,23 +39,12 @@
     margin-top: 26px;
   }
   a {
-    width: 100%;
-    height: 100%;
-    font-family: sans-serif;
-    background: #62a1eb;
-    border-radius: 8px;
-    color: white;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: 300ms;
-    &:hover {
-      transition: 300ms;
-      background-color: #488edf;
-    }
+    
+    @include s.navLink;
+
     text-align: center;
     display: block;
     line-height: 60px;
-    font-size: 20px;
+    font-size: 21px;
   }
 }

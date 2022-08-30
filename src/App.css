@@ -8,8 +8,10 @@ html,body{
   margin: 0;
   padding: 0;
 }
+
+
 *{
-  font-family: myfont;
+  font-family: myfont !important;
 
 }
 a{

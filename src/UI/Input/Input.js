@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import styles from "./Input.module.scss";
 
 function Input(props) {
   const { value, hasErrors, valueChangeHandler, valueLoseFocusHandler } =
     useInput(props.validateFunc);
+
+  useEffect(() =>{
+
+  },[hasErrors]);
 
   const classes = `${styles.wrapper} ${props.className}`;
 
@@ -16,6 +20,7 @@ function Input(props) {
         placeholder={props.placeholder}
         onChange={valueChangeHandler}
         onBlur={valueLoseFocusHandler}
+        required={props.required}
       />
       <span>{hasErrors ? props.errorMsg : props.instruction}</span>
     </div>

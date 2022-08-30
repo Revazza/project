@@ -3,10 +3,10 @@ import useFetch from "../../hooks/useFetch";
 import { useState } from "react";
 function Dropdown(props) {
   const { data, error, isLoading } = useFetch(props.url);
-  const [showList, setShowList] = useState(true);
+  const [showList, setShowList] = useState(false);
   const [animation, setAnimation] = useState("");
   const [itemName,setItemName] = useState(null);
-  console.log(data);
+  // console.log(data);
   const classes = `${styles.wrapper} ${props.className}`;
 
   const handleDropdownClick = () => {
@@ -28,12 +28,11 @@ function Dropdown(props) {
   return (
     <div className={classes} onClick={handleDropdownClick}>
       <div className={styles.head}>
-        <span>{itemName ?? 'თიმი'}</span>
-        <img
-          src="./assets/arrow.png"
-          alt="arrow"
-          className={showList ? styles.rotate_arrow : ""}
-        />
+        <span>{itemName ?? props.title}</span>
+
+        <div className={showList ? `${styles.initial} ${styles.rotate_arrow}` : styles.initial}>
+
+        </div>
       </div>
       {showList && (
         <div className={styles.list} id={animation}>

@@ -1,9 +1,11 @@
+@use "../../variables.scss" as s;
+
 .wrapper {
   width: 1920px;
   height: 1080px;
   position: relative;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .return {
@@ -38,30 +40,67 @@
   height: 973px;
   left: 347px;
   right: 347px;
-  top: 157px;
+  top: 127px;
 
   background: #ffffff;
   border-radius: 18px;
-  border: 1px solid black;
 }
 
 .input_field {
-  width: 30%;
+  width: 34%;
   height: 60px;
   position: absolute;
 }
 #name {
-  left: 150px;
+  left: calc(50% - 926px / 2);
   top: 88px;
 }
 #lastname {
-  left: 590px;
+  left: 610px;
   top: 88px;
 }
 
-.teams_wrapper {
+.dropdown_wrapper,
+.contact_info {
   width: 878px;
   position: absolute;
   left: calc(50% - 926px / 2);
+}
+
+#teams {
   top: 258px;
+  z-index: 5;
+}
+#positions {
+  top: 371px;
+  z-index: 3;
+}
+
+.contact_info {
+  min-height: 60px;
+}
+#email {
+  top: 482px;
+}
+
+#phone {
+  top: 648px;
+}
+
+.next {
+  position: absolute;
+  width: 176px;
+  height: 60px;
+  right: 174px;
+  top: 869px;
+  button{
+    font-size: 20px;
+  }
+  // a {
+  //   @include s.navLink;
+  //   text-align: center;
+  //   display: block;
+  //   line-height: 60px;
+  //   font-size: 21px;
+  // }
 }

@@ -9,26 +9,32 @@ ul {
 .wrapper {
   width: 100%;
   height: 60px;
-  background: #ebebeb;
-  border-radius: 8px;
   cursor: pointer;
-
 }
 
 .head {
   width: 100%;
   height: 100%;
   position: relative;
-  span,
-  img {
+  background: #ebebeb;
+  border-radius: 8px;
+  span{
     position: absolute;
     top: 35%;
   }
-  img {
+
+  .initial{
+    width: 10px;
+    height: 17px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 35%;
     right: 25px;
     transform: rotate(-90deg);
     transition: 300ms;
+    background-image: url('../../../public/assets/arrow.png');
   }
+
   span {
     font-style: normal;
     font-weight: 600;
@@ -75,8 +81,9 @@ ul {
 }
 
 .list {
-  
-
+  border-radius: 8px;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 100%;
   height: 205px;
   background-color: white;
