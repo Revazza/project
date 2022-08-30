@@ -6,8 +6,6 @@ function Input(props) {
   const { value, hasErrors, valueChangeHandler, valueLoseFocusHandler } =
     useInput(props.validateFunc);
 
-  console.log("Has Errors: ", hasErrors);
-  console.log("value: ", value);
   const classes = `${styles.wrapper} ${props.className}`;
 
   return (

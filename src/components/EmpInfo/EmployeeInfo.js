@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Input from "../../UI/Input/Input";
 import styles from "./EmployeeInfo.module.scss";
 import { isGeorgian } from "../../helperFunctions/HelperFunctions";
+import Dropdown from "../../UI/Dropdown/Dropdown";
 
 function EmployeeInfo() {
   return (
@@ -33,7 +34,10 @@ function EmployeeInfo() {
             errorMsg="გამოიყენე ქართული ასოები"
           />
         </div>
-        
+
+        <div className={styles.teams_wrapper}>
+          <Dropdown url="/teams" title='თიმი'/>
+        </div>
       </div>
     </div>
   );

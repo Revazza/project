@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-function useFetch(url) {
+const url = "https://pcfy.redberryinternship.ge/api";
+
+function useFetch(section) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -8,19 +10,18 @@ function useFetch(url) {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const response = await fetch(url, {
+
+      const response = await fetch(url + section, {
         headers: {
           Authorization: "86594610eaa240e3e57306664e9e221b",
         },
       });
-      if(!response.ok)
-      {
+      if (!response.ok) {
         throw new Error(response.statusText);
       }
 
       const result = await response.json();
       setData(result.data);
-      console.log(result.data);
       setIsLoading(false);
     };
     try {
@@ -29,7 +30,7 @@ function useFetch(url) {
       setIsLoading(false);
       setError(err);
     }
-  }, [url]);
+  }, [section]);
 
   return {
     data,
