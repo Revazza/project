@@ -20,6 +20,7 @@ function useInput(validateFunction) {
   return {
     value,
     hasErrors,
+    isTouched,
     valueChangeHandler,
     valueLoseFocusHandler,
   }
