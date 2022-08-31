@@ -15,3 +15,19 @@ export const emailValidation = (email) => {
 export const phoneValidation = (phone) => {
   return /^(\+?995)?(79\d{7}|5\d{8})$/.test(phone)
 };
+
+export const uploadFile = (inputElement)=> {
+  let file = inputElement.files[0];
+  let reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('Encoded Base 64 File String:', reader.result);
+    return reader.result;
+    
+    /******************* for Binary ***********************/
+    let data=(reader.result).split(',')[1];
+     let binaryBlob = atob(data);
+     console.log('Encoded Binary File String:', binaryBlob);
+    return binaryBlob;
+  }
+  reader.readAsDataURL(file);
+}
