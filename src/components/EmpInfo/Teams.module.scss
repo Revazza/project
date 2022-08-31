@@ -3,6 +3,8 @@
   width: 878px;
   position: absolute;
   left: calc(50% - 926px / 2);
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 #teams {
@@ -12,4 +14,9 @@
 #positions {
   top: 371px;
   z-index: 3;
+}
+
+
+.error{
+  border: 2px solid #E52F2F;
 }

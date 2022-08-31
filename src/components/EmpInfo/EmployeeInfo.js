@@ -11,8 +11,14 @@ import { useNavigate } from "react-router-dom";
 import Teams from "./Teams";
 function EmployeeInfo() {
   const navigate = useNavigate();
+  const [teamError,setTeamError] = useState(false);
+  const [positionError,setPositionError] = useState(false);
+  
 
-  const handleNextClick = () => {
+  const handleNextClick = (event) => {
+    
+    event.preventDefault();
+
     const positionID = JSON.parse(localStorage.getItem("position_id"));
     const teamID = JSON.parse(localStorage.getItem("team_id"));
     const name = JSON.parse(localStorage.getItem("name"));
@@ -21,7 +27,10 @@ function EmployeeInfo() {
     const phone = JSON.parse(localStorage.getItem("phone_number"));
 
     if (teamID === -1) {
-    } else if (positionID === -1) {
+      setTeamError(true);
+    }
+    else if (positionID === -1) {
+      setPositionError(true);
     } else if (
       !name.hasErrors &&
       name.isTouched &&
@@ -32,7 +41,11 @@ function EmployeeInfo() {
       !phone.hasErrors &&
       phone.isTouched
     ) {
+      setPositionError(false);
+      setTeamError(false);
+      navigate('/add-note/laptop-features');
     }
+
   };
 
   return (
@@ -62,7 +75,7 @@ function EmployeeInfo() {
         />
       </div>
 
-      <Teams />
+      <Teams teamHasError={teamError} posHasError={positionError} />
 
       <div className={styles.contact_info} id={styles.email}>
         <Input
