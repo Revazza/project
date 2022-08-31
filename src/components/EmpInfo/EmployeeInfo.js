@@ -7,38 +7,32 @@ import {
   emailValidation,
   phoneValidation,
 } from "../../helperFunctions/HelperFunctions";
-import Dropdown from "../../UI/Dropdown/Dropdown";
 import { useNavigate } from "react-router-dom";
+import Teams from "./Teams";
 function EmployeeInfo() {
   const navigate = useNavigate();
-  const [canGoNext, setCanGoNext] = useState();
 
   const handleNextClick = () => {
-    const mail = JSON.parse(localStorage.getItem("მეილი"));
-    const name = JSON.parse(localStorage.getItem("სახელი"));
-    const lastname = JSON.parse(localStorage.getItem("გვარი"));
-    const phone = JSON.parse(localStorage.getItem("ტელეფონის ნომერი"));
+    const positionID = JSON.parse(localStorage.getItem("position_id"));
+    const teamID = JSON.parse(localStorage.getItem("team_id"));
+    const name = JSON.parse(localStorage.getItem("name"));
+    const email = JSON.parse(localStorage.getItem("email"));
+    const surname = JSON.parse(localStorage.getItem("surname"));
+    const phone = JSON.parse(localStorage.getItem("phone_number"));
 
-    if (
-      !mail.hasErrors &&
-      mail.isTouched &&
+    if (teamID === -1) {
+    } else if (positionID === -1) {
+    } else if (
       !name.hasErrors &&
       name.isTouched &&
-      !lastname.hasErrors &&
-      lastname.isTouched &&
+      !email.hasErrors &&
+      email.isTouched &&
+      !surname.hasErrors &&
+      surname.isTouched &&
       !phone.hasErrors &&
       phone.isTouched
     ) {
-      setCanGoNext(true);
     }
-    else{
-      setCanGoNext(false);
-    }
-
-    console.log(mail);
-    console.log(name);
-    console.log(lastname);
-    console.log(phone);
   };
 
   return (
@@ -51,6 +45,7 @@ function EmployeeInfo() {
           instruction="მინიმუმ 2 სიმბოლო, ქართული ასოები"
           validateFunc={isGeorgian}
           errorMsg="გამოიყენე ქართული ასოები"
+          storageTitle="name"
           required={true}
         />
       </div>
@@ -62,16 +57,13 @@ function EmployeeInfo() {
           instruction="მინიმუმ 2 სიმბოლო, ქართული ასოები"
           validateFunc={isGeorgian}
           errorMsg="გამოიყენე ქართული ასოები"
+          storageTitle="surname"
           required={true}
         />
       </div>
 
-      <div className={styles.dropdown_wrapper} id={styles.teams}>
-        <Dropdown url="/teams" title="თიმი" />
-      </div>
-      <div className={styles.dropdown_wrapper} id={styles.positions}>
-        <Dropdown url="/positions" title="პოზიცია" />
-      </div>
+      <Teams />
+
       <div className={styles.contact_info} id={styles.email}>
         <Input
           label="მეილი"
@@ -80,6 +72,7 @@ function EmployeeInfo() {
           instruction="უნდა მთავრდებოდეს @redberry.ge-ით"
           validateFunc={emailValidation}
           errorMsg="უნდა მთავრდებოდეს @redberry.ge-ით"
+          storageTitle="email"
           required={true}
         />
       </div>
@@ -91,11 +84,12 @@ function EmployeeInfo() {
           instruction="უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           validateFunc={phoneValidation}
           errorMsg="უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
+          storageTitle="phone_number"
           required={true}
         />
       </div>
       <div className={styles.next}>
-        <Button title="შემდეგი" type="submit" onClick={handleNextClick} disabled={!canGoNext}/>
+        <Button title="შემდეგი" type="submit" onClick={handleNextClick} />
       </div>
     </form>
   );

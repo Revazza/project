@@ -13,3 +13,8 @@
     background-color: #488edf;
   }
 }
+
+.button:disabled{
+  background-color: gray;
+  cursor: initial;
+}

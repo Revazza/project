@@ -1,13 +1,17 @@
 import styles from "./Dropdown.module.scss";
 import useFetch from "../../hooks/useFetch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function Dropdown(props) {
-  const { data, error, isLoading } = useFetch(props.url);
+  const { data } = useFetch(props.url);
   const [showList, setShowList] = useState(false);
   const [animation, setAnimation] = useState("");
-  const [itemName,setItemName] = useState(null);
-  // console.log(data);
   const classes = `${styles.wrapper} ${props.className}`;
+
+  useEffect(() => {
+    if (data) {
+      props.onFetchData(data);
+    }
+  }, [data]);
 
   const handleDropdownClick = () => {
     if (showList) {
@@ -21,26 +25,21 @@ function Dropdown(props) {
     }
   };
 
-  const handleItemChoose = (event) =>{
-    setItemName(event.target.id);
-  }
-
   return (
     <div className={classes} onClick={handleDropdownClick}>
       <div className={styles.head}>
-        <span>{itemName ?? props.title}</span>
-
-        <div className={showList ? `${styles.initial} ${styles.rotate_arrow}` : styles.initial}>
-
-        </div>
+        <span>{props.title}</span>
+        <div
+          className={
+            showList
+              ? `${styles.initial} ${styles.rotate_arrow}`
+              : styles.initial
+          }
+        ></div>
       </div>
       {showList && (
         <div className={styles.list} id={animation}>
-          <ul>
-            {data?.map((item) => {
-              return <li onClick={handleItemChoose} id={item.name} key={item.id}>{item.name}</li>;
-            })}
-          </ul>
+          <ul>{props.children}</ul>
         </div>
       )}
     </div>

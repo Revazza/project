@@ -1,0 +1,15 @@
+.dropdown_wrapper,
+.contact_info {
+  width: 878px;
+  position: absolute;
+  left: calc(50% - 926px / 2);
+}
+
+#teams {
+  top: 258px;
+  z-index: 5;
+}
+#positions {
+  top: 371px;
+  z-index: 3;
+}

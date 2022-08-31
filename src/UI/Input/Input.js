@@ -14,7 +14,7 @@ function Input(props) {
   const [inputVal, setInputVal] = useState("");
 
   useEffect(() => {
-    const label = props.label;
+    const label = props.storageTitle;
     const obj = {
       hasErrors,
       value,
