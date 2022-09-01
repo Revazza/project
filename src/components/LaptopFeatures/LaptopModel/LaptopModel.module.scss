@@ -1,12 +1,20 @@
 .wrapper{
   position: absolute;
   width: 886px;
-  height: 100px;
+  height: 120px;
   left: 174px;
   top: 688px;
-  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  hr{
+    width: 100%;
+    position: absolute;
+    bottom: -70px;
+    background-color: #C7C7C7;
+  }
 }
 
 .laptop_name{
   width: 50%;
 }
+

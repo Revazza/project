@@ -39,7 +39,6 @@ function UploadFile() {
   };
 
   const imgMBSize = (imgSize / (1024**2)).toFixed(2);
-  console.log(imgMBSize)
 
   return (
     <div className={`${styles.file_wrapper} ${styles.error}`}>
