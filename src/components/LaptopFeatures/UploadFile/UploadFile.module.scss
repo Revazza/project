@@ -47,19 +47,54 @@
   border-radius: 8px;
 }
 
-.error{
-  border-color: #E52F2F;
+.error {
+  border-color: #e52f2f;
   background-color: #f3e6e6;
 }
-img{
-  width: 400px;
-  height: 400px;
-  z-index: 100;
-  border: 2px solid green;
+
+.laptop_img {
+  width: 103%;
+  height: 103%;
+  object-fit: cover;
+  position: relative;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 8px;
 }
 
-.laptop_img{
+#uploadAgain {
+  z-index: 100;
+  top: 450px;
+  left: 653px;
+  width: 233px;
+  height: 60px;
+  line-height: 60px;
+  padding: 0;
+}
+
+.file_name {
+  position: absolute;
+  height: 38px;
   width: 100%;
-  height: 100%;
-  object-fit:cover;
+  bottom: -80px;
+  display: flex;
+  align-items: center;
+  span {
+    font-size: 18px;
+    font-weight: 400;
+    color: #202020;
+  }
+}
+.success_img {
+  background-image: url("../../../../public/assets/success.png");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+}
+
+.file_size{
+  margin-left: 20px;
+  color: #5F5F5F !important;
+  font-size: 18px;
 }

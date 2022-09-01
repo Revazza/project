@@ -1,51 +1,74 @@
 import styles from "./UploadFile.module.scss";
 import React, { useEffect, useState } from "react";
-import { uploadFile } from "../../../helperFunctions/HelperFunctions";
+
 
 function UploadFile() {
-  const [img, setImg] = useState('');
+  const [img, setImg] = useState("");
+  const [imgName, setImgName] = useState("");
+  const [imgSize,setImgSize] = useState(0);
 
-  useEffect(()=>{
-    if(!localStorage.getItem('laptop_image'))
-    {
-      localStorage.setItem('laptop_image','');
+  useEffect(() => {
+    if (!localStorage.getItem("laptop_image")) {
+      localStorage.setItem("laptop_image", "");
+    } else {
+      const store = JSON.parse(localStorage.getItem("laptop_image"))
+      setImg(store.base64);
+      setImgName(store.imgName);
+      setImgSize(store.imgSize);
     }
-    else{
-      const base64 = JSON.parse(localStorage.getItem('laptop_image'));
-      setImg(base64);
-    }
-  },[]);
+  }, []);
 
   const handleFileChange = (event) => {
-    let files = event.target.files;
-    let reader = new FileReader();
-    reader.readAsDataURL(files[0]);
+    const file = event.target.files[0];
+    const fileName = file.name;
+    const fileSize = file.size;
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
     reader.onload = (e) => {
       const base64 = e.target.result;
       setImg(base64);
-      localStorage.setItem('laptop_image',JSON.stringify(base64));
+      setImgName(fileName);
+      setImgSize(fileSize);
+      localStorage.setItem("laptop_image", JSON.stringify({
+        base64,
+        imgName:fileName,
+        imgSize:fileSize
+      }));
+
     };
   };
 
+  const imgMBSize = (imgSize / (1024**2)).toFixed(2);
+  console.log(imgMBSize)
+
   return (
     <div className={`${styles.file_wrapper} ${styles.error}`}>
-      {img==='' && (
-        <React.Fragment>
-          <label className={styles.file_head}>
-            ჩააგდე ან ატვირთე ლეპტოპის ფოტო
-          </label>
-          <label htmlFor="file-upload" className={styles.file_uploader}>
-            ატივრთე
-          </label>
-          <input
-            onChange={handleFileChange}
-            id="file-upload"
-            type="file"
-            accept="image/*"
-          />
-        </React.Fragment>
+      <label className={styles.file_head}>
+        ჩააგდე ან ატვირთე ლეპტოპის ფოტო
+      </label>
+      <label
+        htmlFor="file-upload"
+        className={styles.file_uploader}
+        id={img !== "" ? styles.uploadAgain : ""}
+      >
+        {img !== "" ? "თავიდან ატვირთე" : "ატვირთე"}
+      </label>
+      <input
+        onChange={handleFileChange}
+        id="file-upload"
+        type="file"
+        accept="image/*"
+      />
+      {imgName !== "" && (
+        <div className={styles.file_name}>
+          <div className={styles.success_img}> </div>
+          <span>{imgName}</span>
+          <span className={styles.file_size}>{imgMBSize} mb</span>
+        </div>
       )}
-      {img !=='' && <img className={styles.laptop_img} src={img} alt="okiedokie" />}
+      {img !== "" && (
+        <img className={styles.laptop_img} src={img} alt="okiedokie" />
+      )}
     </div>
   );
 }
