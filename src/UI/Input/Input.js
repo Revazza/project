@@ -10,8 +10,10 @@ function Input(props) {
     valueChangeHandler,
     valueLoseFocusHandler,
   } = useInput(props.validateFunc);
-
   const [inputVal, setInputVal] = useState("");
+  const [error,setError] = useState(false);
+
+  
 
   useEffect(() => {
     const label = props.storageTitle;
@@ -28,23 +30,30 @@ function Input(props) {
       if (value !== "") {
         localStorage.setItem(label, JSON.stringify(obj));
         setInputVal(value);
+        setError(hasErrors);
       }
       else if(value === '' && data.value.length === 1)
       {
         setInputVal('');
         localStorage.setItem(label, JSON.stringify(obj));
+        setError(true);
       }
       else{
         setInputVal(data.value);
+        setError(data.hasErrors)
       }
+
+      
       
     }
   }, [hasErrors, value, isTouched]);
 
   const classes = `${styles.wrapper} ${props.className}`;
 
+  console.log(error)
+
   return (
-    <div className={classes} id={hasErrors ? styles.error : ""}>
+    <div className={classes} id={error ? styles.error : ""}>
       <label>{props.label}</label>
       <input
         type={props.inputType}
@@ -54,7 +63,7 @@ function Input(props) {
         required={props.required}
         value={inputVal}
       />
-      <span>{hasErrors ? props.errorMsg : props.instruction}</span>
+      <span>{error ? props.errorMsg : props.instruction}</span>
     </div>
   );
 }

@@ -1,5 +1,7 @@
+import LaptopCpu from './CPU/LaptopCpu';
 import styles from './LaptopFeatures.module.scss';
 import LaptopModel from './LaptopModel/LaptopModel';
+import LaptopRam from './RAM/LaptopRam';
 import UploadFile from './UploadFile/UploadFile';
 
 function LaptopFeatures() {
@@ -7,6 +9,8 @@ function LaptopFeatures() {
     <form className={styles.wrapper}>
       <UploadFile />
       <LaptopModel />
+      <LaptopCpu />
+      <LaptopRam />
     </form>
   )
 }

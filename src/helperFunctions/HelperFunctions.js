@@ -17,5 +17,10 @@ export const phoneValidation = (phone) => {
 };
 
 export const laptopNameValidation = (name) => {
-  return /^[a-zA-Z0-9?><;,{}[\]\-_+=!@#()$%\^&*|']*$/.test(name);
+  return /^[a-zA-Z0-9?[\]\_+=!@#()$%\^&*']*$/.test(name) && name.trim().length > 0;
 };
+
+export const isAllNum = (num) =>{
+
+  return /^[0-9]*$/.test(num) && num.trim().length > 0;
+}
