@@ -8,10 +8,6 @@ function Teams(props) {
   const [positionID, setPositionID] = useState(-1);
   const [positions, setPositions] = useState();
 
-  useEffect(() => {
-    console.log(positionID);
-  }, [positionID]);
-
   const handleTeamchange = (event) => {
     const id = +event.target.id;
     setTeamID(id);

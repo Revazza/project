@@ -7,13 +7,12 @@ function Input(props) {
     value,
     isTouched,
     hasErrors,
+    isMount,
     valueChangeHandler,
     valueLoseFocusHandler,
   } = useInput(props.validateFunc);
   const [inputVal, setInputVal] = useState("");
-  const [error,setError] = useState(false);
-
-  
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const label = props.storageTitle;
@@ -27,30 +26,41 @@ function Input(props) {
       localStorage.setItem(label, JSON.stringify(obj));
     } else {
       const data = JSON.parse(localStorage.getItem(label));
-      if (value !== "") {
-        localStorage.setItem(label, JSON.stringify(obj));
+
+      if(!isMount && data.value !== '' && value ==='')
+      {
+        localStorage.setItem(label,JSON.stringify(obj));
+        setInputVal('');
+        setError(hasErrors);
+      }
+      else if(data.value !== '' && value === '')
+      {
+        setInputVal(data.value);
+        setError(data.hasErrors);
+      }
+      else if(data.value === '' && value !=='')
+      {
+        localStorage.setItem(label,JSON.stringify(obj));
         setInputVal(value);
         setError(hasErrors);
       }
-      else if(value === '' && data.value.length === 1)
+      else if(data.value !== '' && value !== '')
+      {
+        localStorage.setItem(label,JSON.stringify(obj));
+        setInputVal(value);
+        setError(hasErrors);
+      }
+      else if(data.value === '' && value === '')
       {
         setInputVal('');
-        localStorage.setItem(label, JSON.stringify(obj));
-        setError(true);
+        setError(false);
       }
-      else{
-        setInputVal(data.value);
-        setError(data.hasErrors)
-      }
-
-      
       
     }
   }, [hasErrors, value, isTouched]);
 
   const classes = `${styles.wrapper} ${props.className}`;
 
-  console.log(error)
 
   return (
     <div className={classes} id={error ? styles.error : ""}>

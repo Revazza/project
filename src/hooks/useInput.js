@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function useInput(validateFunction) {
 
   const [value,setValue] = useState('');
   const [isTouched,setIsTouched] = useState(false);
+  const [isMount,setIsMount] = useState(true);
+
+  useEffect(()=>{
+    setIsMount(false);
+  },[]);
 
   const validInput = validateFunction(value);
   const hasErrors = !validInput && isTouched;
@@ -21,6 +26,7 @@ function useInput(validateFunction) {
     value,
     hasErrors,
     isTouched,
+    isMount,
     valueChangeHandler,
     valueLoseFocusHandler,
   }
