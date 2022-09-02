@@ -1,15 +1,37 @@
-
-.wrapper{
+.wrapper {
   position: absolute;
   width: 886px;
   height: 110px;
   left: 174px;
   top: 1145px;
-  border: 1px solid black;
   display: flex;
   align-items: center;
 }
 
-.input_field{
+.input_field {
   width: 50%;
+}
+
+.ram_type {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label {
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+  position: absolute;
+  left: 500px;
+}
+
+
+.line{
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #C7C7C7;
+  bottom: -70px;
 }

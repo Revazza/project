@@ -49,7 +49,7 @@ function EmployeeInfo() {
   };
 
   return (
-    <form className={styles.form_wrapper}>
+    <form className={styles.form_wrapper} onSubmit={handleNextClick}>
       <div className={styles.input_field} id={styles.name}>
         <Input
           label="სახელი"
@@ -102,7 +102,7 @@ function EmployeeInfo() {
         />
       </div>
       <div className={styles.next}>
-        <Button title="შემდეგი" type="submit" onClick={handleNextClick} />
+        <Button title="შემდეგი" type="submit" />
       </div>
     </form>
   );

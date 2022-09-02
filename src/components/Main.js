@@ -14,24 +14,25 @@ function Main() {
     }
   }, [location]);
 
-  const disableLink = (e) =>{
+  const disableLink = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.return}>
-        {currentLoc === "info" && (
+      {currentLoc === "info" && (
+        <div className={styles.return}>
           <Link to="/">
             <div className={styles.return_img}></div>
           </Link>
-        )}
-        {currentLoc === "features" && (
-          <Link to="emp-info">
-            <div className={styles.return_img}></div>
-          </Link>
-        )}
-      </div>
+        </div>
+      )}
+
+      {currentLoc === "features" && (
+        <Link to="emp-info" className={styles.to_emp_info}>
+          უკან
+        </Link>
+      )}
       <div className={styles.sections}>
         <div className={styles.first}>
           <NavLink

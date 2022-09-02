@@ -28,6 +28,11 @@
     margin-top: 5px;
   }
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 #error {
   label,span{

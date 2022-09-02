@@ -1,6 +1,9 @@
 .file_wrapper {
+  cursor: pointer;
+  label{
+    cursor: pointer;
+  }
   box-sizing: border-box;
-
   position: absolute;
   height: 423px;
   left: 174px;
@@ -53,13 +56,14 @@
 }
 
 .laptop_img {
-  width: 103%;
+  width: 104.5%;
   height: 103%;
   object-fit: cover;
   position: relative;
   right: 5px;
   bottom: 5px;
   border-radius: 8px;
+  cursor: initial;
 }
 
 #uploadAgain {

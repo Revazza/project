@@ -20,12 +20,16 @@ function Cpu() {
 
   useEffect(() => {
     if (!localStorage.getItem("laptop_cpu")) {
-      localStorage.setItem("laptop_cpu", "");
+      const obj = {
+        hasError:false,
+        value:''
+      }
+      localStorage.setItem("laptop_cpu", JSON.stringify(obj));
     } else {
-      const name = JSON.parse(localStorage.getItem("laptop_cpu"));
+      const data = JSON.parse(localStorage.getItem("laptop_cpu"));
 
-      if (name !== "") {
-        setTitle(name);
+      if (data.value !== "") {
+        setTitle(data.value);
       }
     }
   }, [cpus]);

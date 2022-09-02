@@ -19,7 +19,8 @@ function LaptopModel() {
         />
       </div>
       <LaptopBrands />
-      <hr/>
+      <div className={styles.line}></div>
+      
     </div>
   );
 }

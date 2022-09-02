@@ -1,0 +1,59 @@
+.wrapper {
+  position: absolute;
+  width: 886px;
+  height: 130px;
+  left: 174px;
+  top: 1380px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date_wrapper,
+.price_wrapper {
+  width: 407px;
+}
+
+.currency {
+  width: 21px;
+  height: 21px;
+  background-image: url("../../../../public/assets/currency.png");
+  position: relative;
+  left: 370px;
+  bottom: 67px;
+  background-repeat: no-repeat;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: transparent !important;
+}
+
+.state_wrapper {
+  position: absolute;
+  top: 150px;
+  width: 250px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label {
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+}

@@ -1,12 +1,22 @@
 .wrapper {
   position: absolute;
-  height: 1871px;
+  height: 1771px;
   left: 347px;
   right: 347px;
   top: 157px;
 
+  overflow: auto;
   background: #ffffff;
   border: 3px solid black;
 }
 
-
+.btn_wrapper {
+  position: absolute;
+  bottom: 47px;
+  right: 147px;
+  width: 219px;
+  height: 60px;
+  button{
+    font-size: 20px;
+  }
+}

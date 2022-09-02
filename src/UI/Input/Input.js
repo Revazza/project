@@ -26,34 +26,28 @@ function Input(props) {
       localStorage.setItem(label, JSON.stringify(obj));
     } else {
       const data = JSON.parse(localStorage.getItem(label));
-
-      if(!isMount && data.value !== '' && value ==='')
+      if(isMount)
       {
-        localStorage.setItem(label,JSON.stringify(obj));
-        setInputVal('');
-        setError(hasErrors);
-      }
-      else if(data.value !== '' && value === '')
-      {
-        setInputVal(data.value);
         setError(data.hasErrors);
+        setInputVal(data.value);
       }
-      else if(data.value === '' && value !=='')
+      else if(!isMount && value !== '')
       {
-        localStorage.setItem(label,JSON.stringify(obj));
-        setInputVal(value);
         setError(hasErrors);
-      }
-      else if(data.value !== '' && value !== '')
-      {
-        localStorage.setItem(label,JSON.stringify(obj));
         setInputVal(value);
-        setError(hasErrors);
+        localStorage.setItem(label,JSON.stringify(obj));
       }
-      else if(data.value === '' && value === '')
+      else if(!isMount && value === '')
       {
+        if(data.isTouched)
+        {
+          setError(true);
+        }
+        else{
+          setError(hasErrors);
+        }
         setInputVal('');
-        setError(false);
+        localStorage.setItem(label,JSON.stringify(obj));
       }
       
     }
@@ -61,9 +55,8 @@ function Input(props) {
 
   const classes = `${styles.wrapper} ${props.className}`;
 
-
   return (
-    <div className={classes} id={error ? styles.error : ""}>
+    <div className={classes} id={error ? styles.error : ""} >
       <label>{props.label}</label>
       <input
         type={props.inputType}
