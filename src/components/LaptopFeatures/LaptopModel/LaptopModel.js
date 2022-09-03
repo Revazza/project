@@ -3,7 +3,7 @@ import Input from "../../../UI/Input/Input";
 import { laptopNameValidation } from "../../../helperFunctions/HelperFunctions";
 import LaptopBrands from "./LaptopBrands";
 
-function LaptopModel() {
+function LaptopModel(props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.laptop_name}>
@@ -18,7 +18,7 @@ function LaptopModel() {
           required={true}
         />
       </div>
-      <LaptopBrands />
+      <LaptopBrands hasError={props.hasError} />
       <div className={styles.line}></div>
       
     </div>

@@ -7,15 +7,17 @@ function RadioButtons(props) {
   const handleValueChange = (event) => {
     const id = event.target.id;
     setCurrentValue(id);
-    localStorage.setItem(props.storageTitle,id);
+    localStorage.setItem(props.storageTitle,JSON.stringify({
+      hasError:false,
+      value:id,
+    }));
   };
 
   useEffect(() => {
-    const data = localStorage.getItem(props.storageTitle)
+    const data = JSON.parse(localStorage.getItem(props.storageTitle));
     if(!data)
     {
       const obj = {
-        isTouched:false,
         hasError:false,
         value:''
       }
@@ -37,6 +39,7 @@ function RadioButtons(props) {
           id={props.value1}
           onChange={handleValueChange}
           checked={currentValue===props.value1}
+          required={true}
         />
         <label>{props.value1}</label>
       </div>
@@ -48,6 +51,7 @@ function RadioButtons(props) {
           id={props.value2}
           onChange={handleValueChange}
           checked={currentValue===props.value2}
+          required={true}
         />
         <label>{props.value2}</label>
       </div>

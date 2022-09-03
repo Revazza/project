@@ -3,10 +3,10 @@ import styles from "./LaptopCpu.module.scss";
 import Input from "../../../UI/Input/Input";
 import { isAllNum } from "../../../helperFunctions/HelperFunctions";
 
-function LaptopCpu() {
+function LaptopCpu(props) {
   return (
     <div className={styles.wrapper}>
-      <Cpu />
+      <Cpu hasError={props.hasError} />
       <div className={styles.input_field} id={styles.core}>
         <Input
           label="CPU-ს ბირთვი"
@@ -16,6 +16,7 @@ function LaptopCpu() {
           validateFunc={isAllNum}
           errorMsg="მხოლოდ ციფრები"
           storageTitle='laptop_cpu_cores'
+          inputType='number'
         />
       </div>
       <div className={styles.input_field} id={styles.threads}>
@@ -27,6 +28,7 @@ function LaptopCpu() {
           validateFunc={isAllNum}
           errorMsg="მხოლოდ ციფრები"
           storageTitle='laptop_cpu_threads'
+          inputType='number'
         />
       </div>
     </div>

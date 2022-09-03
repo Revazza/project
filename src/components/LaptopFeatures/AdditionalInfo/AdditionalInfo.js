@@ -19,19 +19,22 @@ function AdditionalInfo() {
   const onChangeDate = (event) => {
     const newDate = event.target.value;
     setDate(newDate);
-    localStorage.setItem("laptop_purchase_date", newDate);
+    localStorage.setItem("laptop_purchase_date", JSON.stringify({
+      value:newDate
+    }));
   };
 
   useEffect(() => {
-    const storageDate = localStorage.getItem("laptop_purchase_date");
+    const storageDate = JSON.parse(
+      localStorage.getItem("laptop_purchase_date")
+    );
     if (!storageDate) {
       const obj = {
-        hasError:false,
-        value:'',
-      }
+        value: "",
+      };
       localStorage.setItem("laptop_purchase_date", JSON.stringify(obj));
     } else {
-      setDate(storageDate);
+      setDate(storageDate.value);
     }
   }, []);
 
@@ -69,8 +72,8 @@ function AdditionalInfo() {
           title="ლეპტოპის მდგომარეობა"
           name="laptop_state"
           storageTitle="laptop_state"
-          value1="ახალი"
-          value2="მეორადი"
+          value1="new"
+          value2="used"
         />
       </div>
     </div>
