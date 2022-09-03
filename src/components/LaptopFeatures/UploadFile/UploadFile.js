@@ -5,8 +5,7 @@ function UploadFile(props) {
   const [img, setImg] = useState("");
   const [imgName, setImgName] = useState("");
   const [imgSize, setImgSize] = useState(0);
-
-  //change hasError to false
+  
 
   useEffect(() => {
     if (!localStorage.getItem("laptop_image")) {
@@ -36,7 +35,6 @@ function UploadFile(props) {
     const blobURL = URL.createObjectURL(blob);
 
     //
-    
 
     //
 

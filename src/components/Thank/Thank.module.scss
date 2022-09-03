@@ -1,0 +1,68 @@
+.wrapper {
+  position: absolute;
+  width: 847px;
+  height: 537px;
+  left: 536px;
+  top: 271px;
+
+  background: #ffffff;
+  border-radius: 8px;
+  .img {
+    position: absolute;
+    width: 250px;
+    height: 232px;
+    left: 330px;
+    top: 34.02px;
+    background-image: url("../../../public/assets/celebrate.png");
+  }
+  label {
+    position: absolute;
+    width: 314px;
+    height: 31px;
+    left: calc(50% - 314px / 2 + 1.5px);
+    top: 271px;
+
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    color: #292929;
+  }
+}
+
+.list_wrapper {
+  position: absolute;
+  width: 297px;
+  height: 60px;
+  left: calc(50% - 297px / 2);
+  top: 381px;
+
+  background: #62a1eb;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 60px;
+  a {
+    color: #ffffff;
+    font-size: 20px;
+  }
+}
+
+.dark_layout {
+  background-color: #4a4a4a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.welcome_wrapper {
+  position: absolute;
+  width: 88px;
+  height: 24px;
+  left: 380px;
+  top: 469px;
+
+  font-size: 20px;
+
+  a{
+    color: #0089a7;
+
+  }
+}

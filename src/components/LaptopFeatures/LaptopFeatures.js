@@ -7,12 +7,16 @@ import UploadFile from "./UploadFile/UploadFile";
 import Button from "../../UI/Button/Button";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import token from "../Token";
+
 
 function LaptopFeatures() {
   const [imgError, setImgError] = useState(false);
   const [brandError, setBrandError] = useState(false);
   const [cpuError, setCpuError] = useState(false);
   const [file, setFile] = useState();
+  const navigate = useNavigate();
 
   const handleFileChange = (newFile) => {
     console.log(newFile);
@@ -44,7 +48,7 @@ function LaptopFeatures() {
       laptop_ram: +JSON.parse(localStorage.getItem("laptop_ram")).value,
       laptop_state: JSON.parse(localStorage.getItem("laptop_state")).value,
       laptop_price: +JSON.parse(localStorage.getItem("laptop_price")).value,
-      token: "23f77b16b0a009d1b3d4ffbb8ffad300",
+      token: token,
     };
 
     // if (info.laptop_image === "") {
@@ -95,7 +99,13 @@ function LaptopFeatures() {
         },
       });
 
-      // console.log(request);
+      if(request.status === 200)
+      {
+        navigate('/thank-page');
+      }
+      console.log(request);
+
+
     }
   };
 

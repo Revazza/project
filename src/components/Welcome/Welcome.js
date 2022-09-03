@@ -11,7 +11,7 @@ function Welcome() {
           <Link to="/add-note/emp-info">ჩანაწერის დამატება</Link>
         </div>
         <div className={styles.nav}>
-          <Link to="/list">ჩანაწერის სია</Link>
+          <Link to="/laptop-list">ჩანაწერის სია</Link>
         </div>
       </div>
     </div>

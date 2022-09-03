@@ -38,7 +38,6 @@ function Main() {
           <NavLink
             to="emp-info"
             className={({ isActive }) => (isActive ? styles.active : "")}
-            onClick={disableLink}
           >
             თანამშრომლის ინფო
           </NavLink>
