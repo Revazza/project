@@ -1,8 +1,11 @@
 @font-face {
-  font-family: myfont;
+  font-family: Helvetic;
   font-style: normal;
   src: url("./fonts/HelveticaNeue.ttc") format("WOFF");
 }
+
+
+
 
 html,body{
   margin: 0;
@@ -12,7 +15,7 @@ html,body{
 
 
 *{
-  font-family: myfont !important;
+  font-family: Helvetic !important;
 }
 a{
   text-decoration: none;

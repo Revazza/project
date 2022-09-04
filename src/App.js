@@ -8,6 +8,7 @@ import LaptopFeatures from "./components/LaptopFeatures/LaptopFeatures";
 
 import Thank from "./components/Thank/Thank";
 import LaptopList from "./components/LaptopList/LaptopList";
+import Laptop from "./components/Laptop/Laptop";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route path="thank-page" element={<Thank />} />
         <Route path="laptop-list" element={<LaptopList />} />
+        <Route path="laptop-info/:id" element={<Laptop />} />
       </Routes>
     </div>
   );

@@ -1,3 +1,5 @@
+@use '../../variables.scss' as s;
+
 .wrapper {
   position: absolute;
   width: 100vw;
@@ -6,14 +8,8 @@
 }
 
 .go_back {
-  cursor: pointer;
-  width: 55px;
-  height: 55px;
-  border-radius: 100%;
-  position: absolute;
-  left: 70px;
-  top: 53px;
-  background: #d9d9d9;
+
+  @include s.goBackLink;
   .go_back_img {
     background-image: url("../../../public/assets/arrow.png");
     position: absolute;
@@ -44,7 +40,6 @@
 .laptop_list_wrapper {
   width: 1150px;
   min-height: 300px;
-  border: 1px solid black;
   position: absolute;
   top: 200px;
   left: 380px;
@@ -52,6 +47,8 @@
   grid-template-columns: repeat(2, 47.5%);
   box-sizing: border-box;
   justify-content: space-between;
+  grid-gap: 55px;
+  padding-bottom: 120px;
 }
 
 .laptop_wrapper {
@@ -70,14 +67,12 @@
   border-radius: 10px;
   width: 266px;
   height: 100%;
-  border: 1px solid black;
   object-fit: cover;
 }
 
 .info_wrapper {
   width: 216px;
   height: 100%;
-  border: 1px solid black;
   position: relative;
   label {
     position: absolute;

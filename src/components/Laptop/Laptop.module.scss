@@ -1,0 +1,149 @@
+@use "../../variables.scss" as s;
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden
+}
+
+.go_back {
+  @include s.goBackLink;
+  .go_back_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url("../../../public/assets/arrow.png");
+  }
+}
+
+.page_label {
+  position: absolute;
+  width: 309px;
+  height: 21px;
+  left: 806px;
+  top: 76px;
+
+  font-weight: 700;
+  font-size: 34px;
+
+  color: #000000;
+}
+
+.info_wrapper {
+  width: 1200px;
+  min-height: 800px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.laptop_img_owner {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.laptop_img {
+  width: 577px;
+  height: 342px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.owner_info {
+  width: 450px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.detailed_info {
+  width: 100%;
+  p {
+    margin: 0;
+    width: 50%;
+    font-weight: 400;
+    font-size: 22px;
+
+    color: #797979;
+  }
+  display: flex;
+  justify-content: space-between;
+  .firstP {
+    font-weight: 600;
+    font-size: 22px;
+    color: #2e2e2e;
+  }
+}
+
+.cpu_ram{
+  width: 100%;
+  height: 330px;
+  padding: 50px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #2e2e2e;
+
+}
+
+.ram{
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.cpu{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+}
+#ramInfo{
+  width: 100%;
+}
+#cpuInfo{
+  width: 80%;
+}
+
+.additonal_info{
+  width: 100%;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.laptop_chars{
+  width: 50%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#characteristics{
+  width: 100%;
+}
+
+.date{
+  width: 50%;
+  height: 38%;
+}

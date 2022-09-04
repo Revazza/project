@@ -8,7 +8,6 @@ function Thank() {
     localStorage.clear();
   }, []);
 
-  const handleListClick = () => {};
 
   return (
     <div className={styles.dark_layout}>
