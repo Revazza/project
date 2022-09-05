@@ -23,7 +23,6 @@ function App() {
         <Route path="laptop-list" element={<LaptopList />} />
         <Route path="laptop-info/:id" element={<Laptop />} />
       </Routes>
-
     </div>
   );
 }
