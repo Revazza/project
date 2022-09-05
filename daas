@@ -1,0 +1,27 @@
+[33mc8d214e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: commit: da
+[33mc750609[m HEAD@{1}: commit: test
+[33m66e28cc[m HEAD@{2}: commit: Deploy project
+[33mbb7faf4[m HEAD@{3}: commit: s
+[33mb928c50[m HEAD@{4}: commit: published
+[33m1fbb5e6[m HEAD@{5}: commit: Add gh-pages package
+[33m6eaa3cf[m HEAD@{6}: commit: Add responsiveness End of the project
+[33m2ecc800[m HEAD@{7}: commit: Add laptop view
+[33m290dc69[m HEAD@{8}: commit: Add Thank you page and laptop list page
+[33m624abba[m HEAD@{9}: commit: Add laptop features and form submission
+[33mb5a1204[m HEAD@{10}: commit: Add laptop price/buy date/condition
+[33m9de99ef[m HEAD@{11}: commit: Modify Input and useInput
+[33m7ee4c65[m HEAD@{12}: commit: Add CPU section
+[33mac064af[m HEAD@{13}: commit: Add brands
+[33m8c08721[m HEAD@{14}: commit: Add img uploader/reader
+[33m9ee6fbe[m HEAD@{15}: commit: Features in progress
+[33mf91be9b[m HEAD@{16}: commit: Employee Info page done
+[33mafaf0cb[m HEAD@{17}: commit: Modify dropdown and input
+[33md2fa960[m HEAD@{18}: commit: Add save input information on refresh
+[33m1b0e7e4[m HEAD@{19}: commit: Add navigation between pages
+[33ma081f2b[m HEAD@{20}: commit: Add Dropdown
+[33m87192c5[m HEAD@{21}: commit: Add useInput hook and Input UI component
+[33m0601e9b[m HEAD@{22}: commit: Change buttons to links
+[33m795c078[m HEAD@{23}: commit: Add Welcome page
+[33mf7fce0e[m HEAD@{24}: Branch: renamed refs/heads/main to refs/heads/master
+[33mf7fce0e[m HEAD@{26}: Branch: renamed refs/heads/master to refs/heads/main
+[33mf7fce0e[m HEAD@{28}: commit (initial): Initialize project using Create React App
