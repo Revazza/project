@@ -5,7 +5,6 @@ function CpuRam(props) {
   const { data: brands } = useFetch(`/brands`);
 
   const brand = brands?.find((x) => x.id === props.laptop?.brand_id)?.name;
-  console.log(props.laptop);
 
   const cpu = props.laptop?.cpu;
 

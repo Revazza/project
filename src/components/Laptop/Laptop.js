@@ -16,7 +16,6 @@ function Laptop() {
   const { data, isLoading, error } = useFetch(
     `/laptop/${laptopID}?token=${token}`
   );
-  console.log(data);
 
   const user = data?.user;
   const laptop = data?.laptop;
@@ -41,14 +40,14 @@ function Laptop() {
                   className={styles.detailed_info}
                   id={styles.characteristics}
                 >
-                  <p className={styles.firstP}>ლეპტოპის მდგომარეობა: </p>
+                  <p className={styles.firstP}>მდგომარეობა: </p>
                   <p>{laptop?.state}</p>
                 </div>
                 <div
                   className={styles.detailed_info}
                   id={styles.characteristics}
                 >
-                  <p className={styles.firstP}>ლეპტოპის მდგომარეობა: </p>
+                  <p className={styles.firstP}>ლეპტოპის ფასი: </p>
                   <p>{laptop?.price}</p>
                 </div>
               </div>

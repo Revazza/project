@@ -1,13 +1,12 @@
 .wrapper {
   position: absolute;
-  height: 1771px;
+  height: 1821px;
   left: 347px;
   right: 347px;
   top: 157px;
 
   overflow: auto;
   background: #ffffff;
-  border: 3px solid black;
 }
 
 .btn_wrapper {
@@ -16,7 +15,26 @@
   right: 147px;
   width: 219px;
   height: 60px;
-  button{
+  button {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .wrapper {
+    margin-top: 40px;
+    overflow-x: hidden;
+  }
+
+  .btn_wrapper {
+    right: 20px;
   }
 }

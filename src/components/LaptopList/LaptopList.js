@@ -6,11 +6,13 @@ import Loading from "../../UI/Loading/Loading";
 import React from "react";
 function LaptopList() {
   const { data, isLoading, error } = useFetch(`/laptops?token=${token}`);
-  console.log(data);
 
   return (
     <React.Fragment>
       {isLoading && <Loading />}
+      {data?.length === 0 && (
+        <p className={styles.nothing_found}> No Laptop's found</p>
+      )}
       {!isLoading && (
         <div className={styles.wrapper}>
           <div className={styles.go_back}>
@@ -30,8 +32,8 @@ function LaptopList() {
                   <img className={styles.img_wrapper} src={imgSrc}></img>
                   <div className={styles.info_wrapper}>
                     <label>{fullName}</label>
-                    <span >{laptop.laptop.name}</span>
-                    <Link to={linkUrl} >მეტის ნახვა</Link>
+                    <span>{laptop.laptop.name}</span>
+                    <Link to={linkUrl}>მეტის ნახვა</Link>
                   </div>
                 </div>
               );

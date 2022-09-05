@@ -1,3 +1,5 @@
+@use "../variables.scss" as s;
+
 .wrapper {
   position: relative;
   box-sizing: border-box;
@@ -31,22 +33,19 @@
   }
 }
 
-
-.second,.first{
+.second,
+.first {
   position: absolute;
   height: 24px;
   top: 85px;
 }
 
-
-
 .first {
   left: 671px;
 }
-.second{
+.second {
   right: 671px;
 }
-
 
 @mixin navBorderAnimation($color) {
   content: "";
@@ -64,7 +63,6 @@
   animation-timing-function: ease-in;
 }
 
-
 .sections {
   a {
     width: 200px;
@@ -76,25 +74,92 @@
 }
 
 @keyframes showBottomBorder {
-  from{
+  from {
     width: 0;
   }
-  to{
+  to {
     width: 80%;
   }
 }
 
-.active::before{
+.active::before {
   @include navBorderAnimation(#232323);
 }
 
-
-.to_emp_info{
+.to_emp_info {
   position: relative;
-  top:1830px;
+  top: 1830px;
   left: 525px;
   z-index: 70;
-  color: #62A1EB;
+  color: #62a1eb;
   font-size: 18px;
   letter-spacing: 0.08em;
+}
+
+#mobNav{
+  display: none;
+}
+
+@include s.media(390px) {
+  .return {
+    background-color: transparent;
+    left: 0px;
+    top: 15px;
+  }
+  
+  #mobNav{
+    display: initial;
+  }
+  #pcNav{
+    display: none;
+  }
+
+  .first,
+  .second {
+    left: 95px;
+    top: 35px;
+    a {
+      font-size: 18px;
+    }
+    span {
+      position: relative;
+      top: 23px;
+      right: 100px;
+      color: #898989;
+    }
+  }
+
+  .second {
+    width: 300px;
+    left: 68px;
+    span{
+      right: 130px;
+    }
+  }
+
+  .active::before {
+    content: "";
+    position: unset;
+    height: unset;
+    border-bottom: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    margin: unset;
+    border-radius: unset;
+    animation-name: unset;
+    animation-duration: unset;
+    animation-fill-mode: unset;
+    animation-timing-function: unset;
+  }
+
+  .to_emp_info {
+    position: relative;
+    top: 1927px;
+    left: 25px;
+    z-index: 70;
+    color: #62a1eb;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+  }
 }

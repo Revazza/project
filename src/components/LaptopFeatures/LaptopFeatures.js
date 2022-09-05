@@ -15,21 +15,19 @@ function LaptopFeatures() {
   const [imgError, setImgError] = useState(false);
   const [brandError, setBrandError] = useState(false);
   const [cpuError, setCpuError] = useState(false);
+  const [isImgUploaded,setIsImgUploaded]  = useState(false);
   const [file, setFile] = useState();
   const navigate = useNavigate();
 
   const handleFileChange = (newFile) => {
-    console.log(newFile);
     setFile(newFile);
+    setIsImgUploaded(true);
   };
 
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    const laptopImage = JSON.parse(localStorage.getItem("laptop_image"));
-    console.log(file);
     let info = {
-      // laptop_image: JSON.parse(localStorage.getItem("laptop_image")).value,
       laptop_brand_id: JSON.parse(localStorage.getItem("laptop_brand_id"))
         .value,
       laptop_cpu: JSON.parse(localStorage.getItem("laptop_cpu")).value,
@@ -51,9 +49,9 @@ function LaptopFeatures() {
       token: token,
     };
 
-    // if (info.laptop_image === "") {
-    //   setImgError(true);
-    // }
+    if (!isImgUploaded) {
+      setImgError(true);
+    }
     if (info.laptop_brand_id === "") {
       setBrandError(true);
     } else {
@@ -67,7 +65,7 @@ function LaptopFeatures() {
 
     if (
       info.laptop_brand_id.value !== "" &&
-      // info.laptop_image.base64 !== "" &&
+      isImgUploaded &&
       info.laptop_cpu.value !== ""
     ) {
       const phoneNum = JSON.parse(localStorage.getItem("phone_number")).value;
@@ -86,9 +84,7 @@ function LaptopFeatures() {
       for (let key in info) {
         formData.append(key, info[key]);
       }
-      for (let pair of formData.entries()) {
-        console.log(pair[0] + ", " + pair[1]);
-      }
+
       const request = await axios({
         method: "post",
         url: "https://pcfy.redberryinternship.ge/api/laptop/create",
@@ -103,9 +99,6 @@ function LaptopFeatures() {
       {
         navigate('/thank-page');
       }
-      console.log(request);
-
-
     }
   };
 

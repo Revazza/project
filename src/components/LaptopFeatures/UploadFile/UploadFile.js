@@ -5,25 +5,6 @@ function UploadFile(props) {
   const [img, setImg] = useState("");
   const [imgName, setImgName] = useState("");
   const [imgSize, setImgSize] = useState(0);
-  
-
-  useEffect(() => {
-    if (!localStorage.getItem("laptop_image")) {
-      const obj = {
-        value: "",
-        imgName: "",
-        imgSize: 0,
-      };
-      localStorage.setItem("laptop_image", JSON.stringify(obj));
-    } else {
-      const image = JSON.parse(localStorage.getItem("laptop_image"));
-
-      // console.log(image);
-      setImg(image.value);
-      setImgName(image.imgName);
-      setImgSize(image.imgSize);
-    }
-  }, []);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -34,24 +15,14 @@ function UploadFile(props) {
     const blob = new Blob([file], { type: "image/jpeg" });
     const blobURL = URL.createObjectURL(blob);
 
-    //
-
-    //
-
     setImg(blobURL);
     setImgName(fileName);
     setImgSize(fileSize);
-    localStorage.setItem(
-      "laptop_image",
-      JSON.stringify({
-        value: blobURL,
-        imgName: fileName,
-        imgSize: fileSize,
-      })
-    );
   };
 
   const imgMBSize = (imgSize / 1024 ** 2).toFixed(2);
+
+  const isMobile = window.innerWidth <= 400;
 
   return (
     <div
@@ -62,16 +33,41 @@ function UploadFile(props) {
       }
     >
       {props.hasError && <div className={styles.errorImg}></div>}
-      <label className={styles.file_head}>
-        ჩააგდე ან ატვირთე ლეპტოპის ფოტო
-      </label>
+      {!isMobile && (
+        <label className={styles.file_head}>
+          ჩააგდე ან ატვირთე ლეპტოპის ფოტო
+        </label>
+      )}
+      {isMobile && (
+        <div className={styles.mobile_file_head}>
+          <div className={styles.camera_img}></div>
+          <label id={styles.mobile_head} className={styles.file_head}>
+            ლეპტოპის ფოტოს ატვირთვა
+          </label>
+        </div>
+      )}
+
       <label
         htmlFor="file-upload"
         className={styles.file_uploader}
         id={img !== "" ? styles.uploadAgain : ""}
       >
-        {img !== "" ? "თავიდან ატვირთე" : "ატვირთე"}
+        {!isMobile && (
+          <React.Fragment>
+            {img !== "" ? "თავიდან ატვირთე" : "ატვირთე"}
+          </React.Fragment>
+        )}
+        {isMobile && ""}
       </label>
+      {isMobile && (
+        <React.Fragment>
+          {img !== "" && (
+            <label htmlFor="file-upload" className={styles.helper_upload_again}>
+              თავიდან ატვირთე
+            </label>
+          )}
+        </React.Fragment>
+      )}
       <input
         onChange={handleFileChange}
         id="file-upload"
@@ -81,7 +77,7 @@ function UploadFile(props) {
       {imgName !== "" && (
         <div className={styles.file_name}>
           <div className={styles.success_img}> </div>
-          <span>{imgName}</span>
+          <span className={styles.first_span}>{imgName}</span>
           <span className={styles.file_size}>{imgMBSize} mb</span>
         </div>
       )}

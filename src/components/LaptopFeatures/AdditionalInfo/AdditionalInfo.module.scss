@@ -1,3 +1,5 @@
+@use '../../../variables.scss' as s;
+
 .wrapper {
   position: absolute;
   width: 886px;
@@ -55,5 +57,25 @@ input[type="date"]:focus::-webkit-datetime-edit {
     font-weight: 500;
     font-size: 16px;
     margin-left: 8px;
+  }
+}
+
+
+@include s.media(390px){
+  .wrapper{
+    width: 390px;
+    top: 1320px;
+    flex-direction: column;
+    left: 13px;
+  }
+  .date_wrapper,.price_wrapper{
+    width: 92%;
+  }
+  .currency{
+    left: 320px;
+  }
+
+  .state_wrapper{
+    top: 250px;
   }
 }

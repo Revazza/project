@@ -48,6 +48,8 @@ function EmployeeInfo() {
 
   };
 
+  const isMobile = window.innerHeight;
+
   return (
     <form className={styles.form_wrapper} onSubmit={handleNextClick}>
       <div className={styles.input_field} id={styles.name}>
@@ -94,7 +96,7 @@ function EmployeeInfo() {
           label="ტელეფონის ნომერი"
           inputType="text"
           placeholder="+995 598 00 07 01"
-          instruction="უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
+          instruction={isMobile? 'ქართული მობ-ნომრის ფორმატი':"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
           validateFunc={phoneValidation}
           errorMsg="უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           storageTitle="phone_number"

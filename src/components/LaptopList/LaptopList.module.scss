@@ -1,4 +1,4 @@
-@use '../../variables.scss' as s;
+@use "../../variables.scss" as s;
 
 .wrapper {
   position: absolute;
@@ -7,8 +7,15 @@
   overflow-x: hidden;
 }
 
-.go_back {
+.nothing_found {
+  position: absolute;
+  font-size: 60px;
+  color: #2e2e2e8c;
+  left: 36%;
+  top: 150px;
+}
 
+.go_back {
   @include s.goBackLink;
   .go_back_img {
     background-image: url("../../../public/assets/arrow.png");
@@ -101,6 +108,38 @@
     font-weight: 400;
     font-size: 13px;
     text-decoration: underline;
-    color: #4386A9;
+    color: #4386a9;
+  }
+}
+
+@include s.media(390px) {
+  .wrapper {
+  }
+  .go_back {
+    left: 0;
+    background-color: transparent;
+    top: 23px;
+  }
+  .list_label {
+    left: calc(50% - 147px / 2 - 0.5px);
+    top: 38px;
+    font-size: 16px;
+  }
+  .laptop_list_wrapper{
+    top: 100px;
+    left: 20px;
+    width: 390px;
+    grid-template-columns: repeat(1,90%);
+    padding-bottom: 20px;
+    grid-gap:25px;
+  }
+  .img_wrapper{
+    width: 164px;
+  }
+  .info_wrapper{
+    width: 150px;
+    a,label{
+      font-size: 14px;
+    }
   }
 }

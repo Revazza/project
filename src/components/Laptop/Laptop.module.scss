@@ -4,7 +4,7 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 .go_back {
@@ -90,7 +90,7 @@
   }
 }
 
-.cpu_ram{
+.cpu_ram {
   width: 100%;
   height: 330px;
   padding: 50px 0;
@@ -98,10 +98,9 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #2e2e2e;
-
 }
 
-.ram{
+.ram {
   width: 50%;
   height: 90%;
   display: flex;
@@ -109,21 +108,21 @@
   justify-content: space-around;
 }
 
-.cpu{
+.cpu {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 50%;
 }
-#ramInfo{
+#ramInfo {
   width: 100%;
 }
-#cpuInfo{
+#cpuInfo {
   width: 80%;
 }
 
-.additonal_info{
+.additonal_info {
   width: 100%;
   height: 210px;
   display: flex;
@@ -131,7 +130,7 @@
   justify-content: space-between;
 }
 
-.laptop_chars{
+.laptop_chars {
   width: 50%;
   height: 90px;
   display: flex;
@@ -139,11 +138,96 @@
   justify-content: space-around;
 }
 
-#characteristics{
+#characteristics {
   width: 100%;
 }
 
-.date{
+.date {
   width: 50%;
   height: 38%;
+}
+
+@include s.media(390px) {
+  .wrapper {
+    overflow-x: initial;
+  }
+  .go_back {
+    background-color: transparent;
+    left: 10px;
+    top: 15px;
+  }
+  .page_label {
+    left: calc(50% - 146px / 2 - 1px);
+    top: 31px;
+    font-size: 20px;
+    width: 200px;
+  }
+  .info_wrapper {
+    top: 120px;
+    left: 18px;
+    transform: initial;
+    width: 91%;
+  }
+  .laptop_img {
+    width: 100%;
+    height: 200px;
+  }
+  .owner_info {
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+  }
+  .laptop_img_owner {
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+    padding: 0;
+    border-bottom: 0.6px solid #a5a5a5;
+  }
+  .detailed_info {
+    p {
+      font-size: 16px;
+    }
+    .firstP {
+      font-size: 16px;
+    }
+  }
+  .cpu_ram {
+    flex-direction: column;
+    padding: 30px 0;
+    border-bottom: 0.6px solid #a5a5a5;
+    justify-content: initial;
+    height: 220px;
+  }
+  .ram {
+    height: 60%;
+  }
+  .cpu {
+    height: 50%;
+  }
+  .ram,
+  .cpu {
+    width: 100%;
+  }
+  #cpuInfo {
+    width: 100%;
+  }
+
+  .additonal_info {
+    height: 128px;
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+    box-sizing: border-box;
+    padding-top: 30px;
+    .laptop_chars {
+      width: 100%;
+      height: 45px;
+    }
+    .date {
+      margin-top: 8px;
+      width: 100%;
+      height: auto;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 @use '../../variables.scss' as s;
 
 .wrapper {
-  width: 1920px;
+  width: 100%;
   height: 1080px;
   position: relative;
 
@@ -22,7 +22,7 @@
     left: 589px;
     top: 182px;
     background-image: url("../../../public/assets/welcome.png");
-    width: 781px;
+    width: 41%;//781px
     height: 482px;
     background-repeat: no-repeat;
   }
@@ -48,3 +48,24 @@
     font-size: 21px;
   }
 }
+
+
+@include s.media(390px)
+{
+  .wrapper{
+    height: 844px;
+  }
+  .welcome_img{
+    left: 60px !important;
+    background-image: url('../../../public/assets/responsive-welcome.png') !important;
+    width: 268.58px !important;
+    height: 349px;
+  }
+
+  .nav_wrapper{
+    top: 640px;
+    left: 5%;
+  }
+}
+
+

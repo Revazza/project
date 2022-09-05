@@ -1,3 +1,5 @@
+@use '../../variables.scss' as s;
+
 .wrapper {
   position: absolute;
   width: 847px;
@@ -67,5 +69,33 @@
   a{
     color: #0089a7;
 
+  }
+}
+
+@include s.media(390px)
+{
+  .wrapper{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left:0;
+    border-radius: 0px;
+    label{
+      width: 250px;
+      line-height: 40px;
+      left: 80px;
+      top: 360px;
+    }
+  }
+  .img{
+    top: 120px !important;
+    left: 120px !important;
+  }
+  .list_wrapper{
+    top: 600px;
+  }
+  .welcome_wrapper{
+    top: 710px;
+    left: 150px;
   }
 }

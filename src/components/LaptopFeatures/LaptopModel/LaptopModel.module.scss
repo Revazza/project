@@ -1,3 +1,5 @@
+@use '../../../variables.scss' as s;
+
 .wrapper{
   position: absolute;
   width: 886px;
@@ -24,5 +26,21 @@
   background-color: gray;
   position: absolute;
   bottom: -70px;
+}
+
+@include s.media(390px){
+  .wrapper{
+    width: 380px;
+    left: 13px;
+    top: 350px;
+    flex-direction: column;
+
+  }
+  .laptop_name{
+    width: 94%;
+  }
+  .line{
+    display: none;
+  }
 }
 

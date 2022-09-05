@@ -1,9 +1,7 @@
 import styles from "./Thank.module.scss";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Button from "../../UI/Button/Button";
+import { Link } from "react-router-dom";
 function Thank() {
-  const navigate = useNavigate();
   useEffect(() => {
     localStorage.clear();
   }, []);

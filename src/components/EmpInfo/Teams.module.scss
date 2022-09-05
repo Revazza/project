@@ -1,10 +1,12 @@
-.dropdown_wrapper,
-.contact_info {
+@use '../../variables.scss' as s;
+
+.dropdown_wrapper{
   width: 878px;
   position: absolute;
   left: calc(50% - 926px / 2);
   border-radius: 8px;
   box-sizing: border-box;
+  min-height: 50px;
 }
 
 #teams {
@@ -19,4 +21,18 @@
 
 .error{
   border: 2px solid #E52F2F;
+}
+
+@include s.media(390px)
+{
+  .dropdown_wrapper{
+    width: 104%;
+    left: 10px;
+  }
+  #teams{
+    top: 300px;
+  }
+  #positions{
+    top: 400px;
+  }
 }

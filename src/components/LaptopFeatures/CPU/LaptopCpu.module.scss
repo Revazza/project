@@ -1,3 +1,4 @@
+@use '../../../variables.scss' as s;
 .wrapper {
   position: absolute;
   width: 886px;
@@ -18,4 +19,25 @@
 }
 #threads{
   left: 610px;
+}
+
+@include s.media(390px){
+
+  .wrapper{
+    left: 0px;
+    top: 650px;
+    flex-direction: column;
+    width: 390px;
+  }
+
+  #core{
+    top: 120px;
+    left:13px;
+    width: 357px;
+  }
+  #threads{
+    top: 270px;
+    left: 13px;
+    width: 357px;
+  }
 }
