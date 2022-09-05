@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/project/static/css/main.0b7db83f.css",
+    "main.js": "/project/static/js/main.c9675c5d.js",
+    "static/media/HelveticaNeue.ttc": "/project/static/media/HelveticaNeue.67d426c3bd180e2ea838.ttc",
+    "static/media/welcome.png": "/project/static/media/welcome.88d6d59047adb9e9bbed.png",
+    "static/media/responsive-welcome.png": "/project/static/media/responsive-welcome.5d1b8a6207cd1dd23b8b.png",
+    "index.html": "/project/index.html",
+    "main.0b7db83f.css.map": "/project/static/css/main.0b7db83f.css.map",
+    "main.c9675c5d.js.map": "/project/static/js/main.c9675c5d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b7db83f.css",
+    "static/js/main.c9675c5d.js"
+  ]
+}
